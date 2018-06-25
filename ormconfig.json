@@ -1,0 +1,24 @@
+{
+    "name": "default",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "test123",
+    "database": "scrape-test",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "src/domain/task/website.entity.ts",
+        "src/domain/task/scrape.entity.ts",
+        "src/domain/schedule/schedule.entity.ts"
+    ],
+    "migrations": [
+        "src/migration/*.ts"
+    ],
+    "cli": {
+        "migrationsDir": "src/migration"
+
+    },
+    "autoSchemaSync": true
+}

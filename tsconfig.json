@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noImplicitThis": true,
+        "noUnusedParameters": false,
+        "noImplicitReturns": true,
+        "strictNullChecks": true,
+        "alwaysStrict": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "inlineSourceMap": true,
+        "declaration": true,
+        "outDir": "dist",
+        "removeComments": false,
+        "skipLibCheck": false,
+        "typeRoots": [
+            "node_modules/@types",
+            "typings"
+        ],
+        "baseUrl": "src",
+        "paths": {
+            "@domain/*": [
+                "domain/*"
+            ],
+            "@util/*": [
+                "util/*"
+            ],
+            "@rest/*": [
+                "presentation/rest/*"
+            ],
+            "@db/*": [
+                "infrastructure/db/typeorm/*"
+            ],
+            "@app/*": [
+                "application/*"
+            ]
+        }
+    },
+    "include": [
+        "bin/**/*",
+        "src/**/*",
+        "typings/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

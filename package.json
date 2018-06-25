@@ -1,0 +1,92 @@
+{
+  "name": "freighthub-code-challenge",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "engines": {
+    "node": ">=9.6.0",
+    "yarn": ">=1.5.1"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "coverage",
+      "test",
+      "dist",
+      "index.js",
+      "bin"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "all": true
+  },
+  "scripts": {
+    "dev": "nodemon --watch './src' --exec 'ts-node' src/app",
+    "build": "tsc --rootDir ./ -p tsconfig.json --traceResolution",
+    "build:watch": "tsc -w",
+    "build:test": "tsc --rootDir ./ -p tsconfig.test.json",
+    "circular": "madge --circular dist/",
+    "complexity": "./node_modules/.bin/ts-complexity --max-complexity=20  --pattern './{src,bin}/**/*.ts'",
+    "clean": "rm -fr dist",
+    "coverage:watch": "yarn coverage --watch",
+    "lint": "tslint -p .",
+    "postinstall": "yarn build",
+    "prebuild": "yarn clean",
+    "pretest": "yarn lint && ts-node ./node_modules/.bin/typeorm schema:sync",
+    "start": "node --harmony index.js",
+    "test": "nyc --check-coverage --lines 40 --functions 40 --statements 40 mocha --exit -r ts-node/register test/**/*.test.ts",
+    "test:watch": "yarn test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freight-hub/freighthub-code-challenge.git"
+  },
+  "description": "Code Challenge for FreightHub",
+  "author": "FreightHub GmbH",
+  "keywords": [],
+  "dependencies": {
+    "@momothepug/tsmodule-alias": "^0.3.0",
+    "@types/mocha": "^5.2.2",
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "cron": "^1.3.0",
+    "express": "^4.16.3",
+    "express-validation": "^1.0.2",
+    "inversify": "^4.13.0",
+    "inversify-express-utils": "^6.0.0",
+    "joi": "^13.4.0",
+    "mocha": "^5.2.0",
+    "mysql": "^2.15.0",
+    "nyc": "^12.0.2",
+    "reflect-metadata": "^0.1.12",
+    "sanitize-html": "^1.18.2",
+    "typeorm": "^0.2.7",
+    "typescript": "^2.7.2",
+    "typescript-eslint-parser": "^14.0.0",
+    "winston": "^3.0.0",
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/cron": "^1.3.0",
+    "@types/express": "^4.16.0",
+    "@types/joi": "^13.3.0",
+    "@types/node": "^9.4.6",
+    "@types/winston": "^2.3.9",
+    "dotenv": "^6.0.0",
+    "madge": "^3.0.1",
+    "nodemon": "^1.17.5",
+    "ts-complexity": "0.0.3",
+    "ts-node": "^6.1.1",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
+    "typescript-eslint-parser": "^14.0.0"
+  }
+}

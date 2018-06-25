@@ -1,0 +1,18 @@
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "ter-indent": [
+      false
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true
+    ],
+    "no-floating-promises": true,
+    "no-angle-bracket-type-assertion": false,
+    "no-console": true
+  }
+}
